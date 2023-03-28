@@ -1,4 +1,4 @@
-from pila import Pila, apilar, desapilar, pila_vacia
+
 class nodoPila(object):
     info, sig = None, None
 class Pila(object):
@@ -26,10 +26,10 @@ class Pila(object):
         return pila.tamaño
     def barrido(pila):
         paux = Pila()
-        while(not pila_vacia(pila)):
-            dato = desapilar(pila)
+        while(not Pila.pila_vacia(pila)):
+            dato = Pila.desapilar(pila)
             print(dato)
-            apilar(paux, dato)
-        while(not pila_vacia(paux)):
-            dato = desapilar(paux)
-            apilar(pila, dato)
+            Pila.apilar(paux, dato)
+        while(not Pila.pila_vacia(paux)):
+            dato = Pila.desapilar(paux)
+            Pila.apilar(pila, dato)
