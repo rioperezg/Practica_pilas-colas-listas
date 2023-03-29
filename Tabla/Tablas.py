@@ -1,4 +1,4 @@
-from listas import listas
+from lista import listas
 
 # def function"1" - tabla hash cerrada, mientras que def function"2" - tabla hash encadenada
 def crear_tabla(tamaño):
