@@ -1,4 +1,5 @@
-from lista import listas
+
+from listas import Lista
 
 # def function"1" - tabla hash cerrada, mientras que def function"2" - tabla hash encadenada
 def crear_tabla(tamaño):
@@ -6,14 +7,14 @@ def crear_tabla(tamaño):
 def cantidad_elementos1(tabla):
     return len(tabla) - tabla.count(None)
 def cantidad_elementos2(tabla):
-    return sum(listas.Lista.tamaño(lista) for lista in tabla if lista is not None)
+    return sum(Lista.tamaño(lista) for lista in tabla if lista is not None)
 def funcion_hash(dato, tamaño_tabla):
     return len(str(dato).strip()) % tamaño_tabla
 def agregar1(tabla, dato):
     posicion = funcion_hash(dato, len(tabla))
     if(tabla[posicion] is None):
-        tabla[posicion] = listas.Lista()  
-    listas.Lista.insertar(tabla[posicion], dato)
+        tabla[posicion] = Lista()  
+    Lista.insertar(tabla[posicion], dato)
 def agregar2(tabla, dato):
     posicion = funcion_hash(dato, len(tabla))
     if(tabla[posicion] is None):
@@ -49,7 +50,7 @@ def quitar2(tabla, dato):
     dato = None
     posicion = funcion_hash(dato, len(tabla))
     if(tabla[posicion] is not None):
-        dato = listas.Lista.eliminar(tabla[posicion], dato)
-        if(listas.Lista.lista_vacia(tabla[posicion])):
+        dato = Lista.eliminar(tabla[posicion], dato)
+        if(Lista.lista_vacia(tabla[posicion])):
             tabla[posicion] = None
     return dato
