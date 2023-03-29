@@ -1,17 +1,18 @@
-from colas import colas
+from colas import Cola
 
-cdatos = colas.Cola()
-cvocales = colas.Cola()
+cdatos = Cola()
+cvocales = Cola()
 
 letra = input("Ingrese un caracter")
 while(letra != ""):
-    colas.Cola.arribo(cdatos, letra)
+    Cola.arribo(cdatos, letra)
     letra = input("ingrese un caracter")
-while(not colas.Cola.cola_vacia(cdatos)):
-    letra = colas.Cola.atencion(cdatos)
+while(not Cola.cola_vacia(cdatos)):
+    Cola.atencion(cdatos, letra)
     if letra.upper() in ["A", "E", "i", "o", "u"]:
-        colas.Cola.arribo(cvocales, letra)
+        Cola.arribo(cvocales, letra)
 print("Datos cola vocales")
-while(not colas.Cola.cola_vacia(cvocales)):
-    dato = colas.Cola.atencion(cvocales)
+print(Cola.barrido(cvocales))
+while(not Cola.cola_vacia(cvocales)):
+    dato = Cola.atencion(cvocales)
     print(dato)
