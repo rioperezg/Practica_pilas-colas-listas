@@ -59,3 +59,10 @@ class Cola(object):
             print(dato)
             i += 1
 
+def listado(listado):
+    # Para hacerlo de forma recursiva pondremos condiciones: hasta que la lista no este vacia....
+    listado = Cola()
+    if Cola.cola_vacia(listado) == True:
+        return "El listado esta vacio"
+    else:
+        
