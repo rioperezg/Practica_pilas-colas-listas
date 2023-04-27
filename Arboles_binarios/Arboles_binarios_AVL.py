@@ -1,4 +1,4 @@
-from Arboles_binarios import nodoArbol
+from Arboles_Binarios import nodoArbol
 class NodoArbol(object):
     def __init__(self, info):
         self.izq = None
