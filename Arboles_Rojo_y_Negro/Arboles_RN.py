@@ -94,3 +94,49 @@ class nodoArbolRN(object):
             ant.der = nodo
         raiz = nodoArbolRN.reparar_insertar(nodo)
         return raiz
+    def eliminar_nodo(raiz, clave):
+        if ( y.padre is not None):
+            if(y.padre.izq is not None and y.padre.izq == y):
+                y.padre.izq = x
+            elif(y.padre.der is not None and y.padre.der == y):
+                y.padre.der = x
+        if(x is None and y.padre is not None and y.color == o):
+            x = nodoArbolRN(0)
+            x.color = y.color
+        if(x is not None):
+            x.padre = y.padre
+        if (y != aux):
+            aux.info = y.info
+        if (y.padre is None and y.izq is None and y.der is None):
+            raiz = x
+            return raiz, dato
+        if (y.color == 0):
+            aux = nodoArbolRN.reparar_eliminar(x)
+        if (aux is not None):
+            raiz = aux
+        # return raiz, dato
+    # eliminacion con reparacion
+        while (nodo is not None and nodo.padre is not None and nodo.color == 0):
+            if (nodo == nodo.padre.izq or nodo.padre.izq is None):
+                w = nodo.padre.der
+                if (w.color == 1):
+                    w.color = 0
+                    nodo.padre.color = 1
+                    nodoArbolRN.rotar_izquierda(nodo.padre)
+                    w = nodo.padre.der
+                if (w.izq is None and w.der is None) or (w.izq is not None and 
+                    w.izq.color == 0 and w.der is not None and w.der.color == 0):
+                    w.color = 1
+                    nodo = nodo.padre
+                else:
+                    if(w.der.color == 0):
+                        w.izq.color = 0
+                        w.color = 1
+                        nodoArbolRN.rotar_derecha(w)
+                        w = nodo.padre.der
+                    w.color = nodo.padre.color
+                    nodo.padre.color = 0
+                    w.der.color = 0
+                    nodoArbolRN.rotar_izquierda(nodo.padre)
+
+        
