@@ -60,3 +60,35 @@ def prim(grafo):
             aristas.append([aux.info, adyacentes.destino, adyacentes.info])
             adyacentes = adyacentes.sig
     return bosque
+def Kruskal(grafo):
+    bosque = []
+    aristas = Heap(Pila.Tamaño(grafo) ** 2)
+    aux = grafo.inicio
+    while(aux is not None):
+        bosque.append([aux.info])
+        adyacentes = aux.adyacentes.inicio
+        while(adyacentes is not None):
+            Heap.arrib_H(aristas, [aux.info, adyacentes.destino], adyacentes.info)
+            adyacentes = adyacentes.sig
+        aux = aux.sig
+    while(len(bosque) > 1 and not Heap.heap_vacio(aristas)):
+        dato = Heap.atencion_H(aristas)
+        origen = None
+        for elemento in bosque:
+            if(dato[1][0] in elemento):
+                origen = bosque.pop(bosque.index(elemento))
+        destino = None
+        for elemento in bosque:
+            if(dato[1][1] in elemento):
+                destino = bosque.pop(bosque.index(elemento))
+        if(origen is not None and destino is not None):
+            if(len(origen) > 1 and len(destino) == 1):
+                destino.insert(0, dato[1][0])
+            elif(len(destino) > 1 and len(origen) == 1):
+                origen.append(dato[1][1])
+            elif(len(destino) > 1 and len(origen) > 1):
+                origen += [dato[1][0], dato[1][1]]
+            bosque.append(origen + destino)	
+        else:
+            bosque.append(origen)
+    return bosque
