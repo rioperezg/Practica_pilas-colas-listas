@@ -14,7 +14,7 @@ def dijkstra(grafo, origen, destino):
         Pila.apilar(camino, dato)
         aux = dato[1][0].adyacentes.inicio
         while(aux is not None):
-            pos = buscar_H(no_visitados, aux.destino)
+            pos = Heap.buscar_H(no_visitados, aux.destino)
             if(no_visitados.vector[pos][0]>dato[0] + aux.info):
                 no_visitados.vector[pos][1][1] = dato[1][0].info
                 Heap.cambiar_prioridad(no_visitados, pos, dato[0] + aux.info)
