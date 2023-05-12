@@ -44,6 +44,12 @@ class Heap(object):
                 hijo_izq = (indice * 2) + 1
             else:
                 control = False
+    def buscar_H(heap, buscado):
+        pos = -1
+        for i in range(heap.tamaño):
+            if(heap.vector[i][1] == buscado):
+                pos = i
+        return pos
 
     def agregar(heap, dato):
         heap.vector[heap.tamaño] = dato
