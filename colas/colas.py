@@ -46,8 +46,8 @@ class Cola(object):
         i = 0
         while(i < Cola.tamaño(cola)):
             dato = Cola.mover_al_final(cola)
-            print(dato)
             i += 1
+            return dato
     def arribo_con_prioridad(cola, elemento, prioridad):
         nodo = nodoCola()
         nodo.info = elemento
