@@ -27,6 +27,13 @@ class Cola(object):
 
 ###################
 # ARBOLES BINARIOS
+class nodoArbolHuffman(object):
+    
+    def __init__(self, info, valor):
+        self.izq = None
+        self.der = None
+        self.info = info
+        self.valor = valor
 class nodoArbol(object):
     def __init__(self, info):
         self.izq = None
