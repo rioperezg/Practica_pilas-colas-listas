@@ -14,5 +14,4 @@ while(not Cola.cola_vacia(cdatos)):
 print("Datos cola vocales")
 print(Cola.barrido(cvocales))
 while(not Cola.cola_vacia(cvocales)):
-    dato = Cola.atencion(cvocales)
-    print(dato)
+    print(Cola.atencion(cvocales))
