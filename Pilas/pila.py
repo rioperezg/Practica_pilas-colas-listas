@@ -1,4 +1,3 @@
-
 class nodoPila(object):
     info, sig = None, None
 class Pila(object):
@@ -11,10 +10,13 @@ class Pila(object):
         nodo.sig = pila.cima
         pila.tamaño += 1
     def desapilar(pila):
-        x = pila.cima.info
-        pila.cima = pila.cima.sig
+        if pila.cima is None:
+           return None  # pila vacía
+        x = pila.cima.info      # guardas el valor real
+        pila.cima = pila.cima.sig  # mueves la cima al siguiente nodo
         pila.tamaño -= 1
         return x
+
     def pila_vacia(pila):
         return pila.cima is None
     def en_cima(pila):
@@ -26,10 +28,11 @@ class Pila(object):
         return pila.tamaño
     def barrido(pila):
         paux = Pila()
-        while(not Pila.pila_vacia(pila)):
+        while not Pila.pila_vacia(pila):
             dato = Pila.desapilar(pila)
             print(dato)
             Pila.apilar(paux, dato)
-        while(not Pila.pila_vacia(paux)):
+
+        while(Pila.pila_vacia(paux) != None):
             dato = Pila.desapilar(paux)
             Pila.apilar(pila, dato)
